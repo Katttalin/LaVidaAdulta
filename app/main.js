@@ -41,7 +41,7 @@ function crearDivEnPortrait() {
             <div class="portrait">
                 <div class="fondoPortrait">
                     <div class="contenidoPortrait">
-                       <img src="../assets/imagenes/rotate.svg">
+                       <img src="LaVidaAdulta/assets/imagenes/rotate.svg">
                        <h2>Gira la pantalla</h2>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ function gestorNotificaciones() {
 //PREGUNTAS//
 // Función para obtener datos aleatorios del JSON
 function obtenerDatosAleatorios() {
-    return fetch('../assets/data/datos.json')
+    return fetch('LaVidaAdulta/assets/data/datos.json')
         .then(response => response.json())
         .then(data => {
             const randomIndex = Math.floor(Math.random() * data.length);
@@ -245,7 +245,7 @@ function mostrarNotificacionFinal(imageAlt, mensaje) {
                     </div>
                 </div>
                 <button class="botonOtraVez">
-                   <img src="../assets/imagenes/reload.svg" alt="Icono de recarga">
+                   <img src="LaVidaAdulta/assets/imagenes/reload.svg" alt="Icono de recarga">
                    Inténtalo de nuevo
                 </button>
             `;
