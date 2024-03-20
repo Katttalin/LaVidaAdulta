@@ -1,0 +1,250 @@
+@import "lib/vars"
+@import "lib/reboot"
+@import "lib/type"
+@font-face 
+    font-family: 'Cactus Jack Alternate'
+    src: url('../fonts/Cactus Jack Alternate.ttf') format('truetype')
+@font-face
+    font-family: 'RedactedScript-Regular'
+    src: url('../fonts/RedactedScript-Regular.ttf') format('truetype')
+@font-face
+    font-family: 'TeenageKloudyRegular-PKpg7'
+    src: url('../fonts/TeenageKloudyRegular-PKpg7.ttf') format('truetype')
+
+
+body
+   width: 100vh
+   height: 100vw
+   overflow-x: hidden
+
+.portrait
+    position: fixed
+    z-index: 9999
+    width: 100vw
+    height: 100vh
+    top: 0
+    left: 0
+
+.fondoPortrait
+    position: fixed
+    width: 100vw
+    height: 100vh
+    background-color: #000
+
+.contenidoPortrait
+    width: 100vw
+    height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    gap: 3vh
+
+    img
+        animation: rotateImage 2s linear infinite
+
+    h2
+        color: #fff
+        font-family: Cactus Jack Alternate
+
+@keyframes rotateImage
+    0%
+        transform: rotate(0deg)
+    50% 
+        transform: rotate(180deg)
+    100% 
+        transform: rotate(180deg)
+
+  
+
+
+@keyframes easeOutUp 
+    0%
+        opacity: 1
+        transform: translateY(0)
+    
+    100%
+        opacity: 0
+        transform: translateY(-5vh)
+@keyframes easeOutDown
+    0%
+        opacity: 1
+        transform: translateY(0)
+
+    100% 
+        opacity: 0
+        transform: translateY(5vh)
+
+.fondos
+    position: fixed
+    width: 100vw
+    height: 100vh
+    
+    top: 0
+    left: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    img
+        width: 100vw
+        height: 100vh
+        object-fit: cover
+.sobreFondos
+    z-index: 9990
+    position: fixed
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    gap: 50px
+    height: 100vh
+    width: 100vw
+    h1
+        font-family: TeenageKloudyRegular-PKpg7
+        font-size: 15vh
+        color: #fff
+        margin: 0
+        &.animacion-salida-h1
+            animation: easeOutUp 2s ease-out forwards
+    button
+        border: 0.3vh solid black
+        background-color: white
+        cursor: pointer
+        font-family: 'Cactus Jack Alternate'
+        font-size: 5vh
+        line-height: 3vh
+        border-radius: 5vh
+        box-shadow: 0 0.75vh 0.42vh 0.33vh rgba(0, 0, 0, 0.2)
+        padding: 1.67vh 5.83vh 3vh 5.83vh
+        &:hover
+            color: $azul
+            font-size: 6vh
+        &.animacion-salida-btn
+            animation: easeOutDown 2s ease-out forwards
+
+
+@keyframes entrada
+    from
+        opacity: 0
+        transform: translateY(10vh)
+    to 
+        opacity: 1
+        transform: translateY(0)
+ 
+.notificacion
+    z-index: 9995
+    position: absolute
+    font-family: 'Cactus Jack Alternate'
+    font-size: 3.5vh
+    background-color: white
+    border: 0.3vh solid black
+    border-radius: 4vh
+    padding: 1.33vh 2.67vh
+    display: inline-flex
+    flex-direction: column
+    align-items: center
+    width: auto
+    box-shadow: 0 0.75vh 0.42vh 0.33vh rgba(0, 0, 0, 0.2)
+    opacity: 0
+    transform: translateY(10vh)
+    animation: entrada 0.3s ease forwards
+    &.no-clicable
+                pointer-events: none
+                font-family: 'RedactedScript-Regular'
+                font-size: 2vh
+                opacity: 50%
+
+
+.respuestas
+    font-size: 2.5vh
+    display: flex
+    flex-direction: row
+    gap: 2vh
+    button
+        border: none
+        background: none
+        color: inherit
+        cursor: pointer
+        font-size: inherit
+        font-family: inherit
+        padding: 0
+        margin: 0
+        &:hover
+                font-size: 3.2vh
+                color: $azul
+        &:click
+                border: none
+
+@keyframes aparecerDesdeArriba
+    from
+        transform: translateY(-2vh)
+        opacity: 0
+    to
+        transform: translateY(0)
+        opacity: 1
+
+.Final
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: 9999
+    display: flex
+    flex-direction: column
+    gap: 2vh
+    align-items: center
+        
+
+
+.finalMain
+    font-family: 'Cactus Jack Alternate'
+    background-color: white
+    border: 0.3vh solid black
+    border-radius: 4vh
+    padding: 2vh
+    box-shadow: 0 0.75vh 0.42vh 0.33vh rgba(0, 0, 0, 0.2)
+    display: flex
+    flex-direction: row
+    gap: 4vh
+    width: 85%
+    img
+        width: 40vh
+        height: 30vh
+        border-radius: 4vh
+        object-fit: cover
+    h2
+        font-size: 3.5vw
+        line-height: 3vw
+        margin: 0
+    p
+        font-size: 1.5vw
+
+.textoFinal
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+.botonOtraVez
+    font-family: 'Cactus Jack Alternate'
+    font-size: 3.5vh
+    background-color: white
+    border: 0.3vh solid black
+    border-radius: 4vh
+    box-shadow: 0 0.75vh 0.42vh 0.33vh rgba(0, 0, 0, 0.2)
+    display: none
+    animation: aparecerDesdeArriba 0.5s ease forwards
+    flex-direction: row
+    align-items: center
+    gap: 2vh
+    padding: 1vh 1.6vw
+    cursor: pointer
+    img
+        height: 2.5vh
+        transition: transform 0.5s ease
+    &:hover img
+        transform: rotate(360deg)
+    &:hover
+        color: $azul
+        font-size: 4vh
+    &.mostrar
+        display: flex

@@ -1,0 +1,114 @@
+[
+    {
+        "id": "1",
+        "categoria": "hogar",
+        "alarma": "Te has dejado la vitro encendida",
+        "correcta": "Apagala inmediatamente",
+        "incorrecta": "Sigue con tu día"
+    },
+    {
+        "id": "2",
+        "categoria": "hogar",
+        "alarma": "Se te ha roto la caldera",
+        "correcta": "Llama a tu casero",
+        "incorrecta": "Duchate con una palangana"
+    },
+    {
+        "id": "3",
+        "categoria": "hogar",
+        "alarma": "Tienes el fregadero lleno de vajilla",
+        "correcta": "Friega durante dos horas",
+        "incorrecta": "Termina la entrega de programación"
+    },
+    {
+        "id": "4",
+        "categoria": "hogar",
+        "alarma": "No has pagado la factura de la luz",
+        "correcta": "Busca un trabajo",
+        "incorrecta": "Que la corten, tienes velas"
+    },
+    {
+        "id": "5",
+        "categoria": "hogar",
+        "alarma": "Hay una gotera en la cocina",
+        "correcta": "Pon el cubo de la fregona debajo",
+        "incorrecta": "Llama a tu casero"
+    },
+    {
+        "id": "6",
+        "categoria": "salud",
+        "alarma": "Tienes una crisis de identidad",
+        "correcta": "Deja la carrera",
+        "incorrecta": "Rapate la cabeza"
+    },
+    {
+        "id": "7",
+        "categoria": "salud",
+        "alarma": "No te queda comida",
+        "correcta": "Dejate 60€ en el mercado",
+        "incorrecta": "Sacia el hambre con un piti"
+    },
+    {
+        "id": "8",
+        "categoria": "salud",
+        "alarma": "Te duele la cabeza desde hace tres días",
+        "correcta": "Descansa, come y bebe agua",
+        "incorrecta": "Metete otro Enantyum"
+    },
+    {
+        "id": "9",
+        "categoria": "salud",
+        "alarma": "No ves la luz del sol desde Septiembre",
+        "correcta": "Tómate un café con tus amigos",
+        "incorrecta": "Ponte un documental sobre pájaros"
+    },
+    {
+        "id": "10",
+        "categoria": "salud",
+        "alarma": "Hueles a choto",
+        "correcta": "Duchate",
+        "incorrecta": "Ponte ocho kilos de deshodorante"
+    },
+    {
+        "id": "11",
+        "categoria": "estudios",
+        "alarma": "Llevas sin ir a Modelado 3D un mes",
+        "correcta": "Habla con el profesor",
+        "incorrecta": "Haz como que no existe"
+    },
+    {
+        "id": "12",
+        "categoria": "estudios",
+        "alarma": "Mañana tienes una entrega y la llevas fatal",
+        "correcta": "Ya lo arreglarás, duerme",
+        "incorrecta": "Terminalo a las 5:30am"
+    },
+    {
+        "id": "13",
+        "categoria": "estudios",
+        "alarma": "Te llega una oferta de trabajo (¡De lo tuyo!)",
+        "correcta": "Estudia y trabaja a la vez",
+        "incorrecta": "Dejala pasar, no tienes tiempo"
+    },
+    {
+        "id": "14",
+        "categoria": "estudios",
+        "alarma": "Tienes una entrevista de trabajo",
+        "correcta": "Ensaya con tu ama",
+        "incorrecta": "Échate un porro pa relajarte"
+    },
+    {
+        "id": "15",
+        "categoria": "estudios",
+        "alarma": "Te has pillau por tu profe",
+        "correcta": "Deja su asignatura",
+        "incorrecta": "Tiratelo"
+    },
+    {
+        "id": "16",
+        "categoria": "salud",
+        "alarma": "Tienes pelos en los pezones",
+        "correcta": "Depilatelos",
+        "incorrecta": "Da igual, no tienes novio"
+    }
+]
