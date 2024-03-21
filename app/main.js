@@ -237,7 +237,7 @@ function mostrarNotificacionFinal(imageAlt, mensaje) {
             divFinal.innerHTML = `
                 <div class="finalMain">
                     <div class="imgFinal">
-                        <img src="${imageUrl}" alt="${imageAlt}">
+                        <img src="${imageUrl}">
                     </div>
                     <div class="textoFinal">
                         <h2>¡Oh no!</h2>
