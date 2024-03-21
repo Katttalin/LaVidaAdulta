@@ -77,7 +77,7 @@ function gestorNotificaciones() {
 //PREGUNTAS//
 // Función para obtener datos aleatorios del JSON
 function obtenerDatosAleatorios() {
-    return fetch('../assets/data/datos.json')
+    return fetch('./assets/data/datos.json')
         .then(response => response.json())
         .then(data => {
             const randomIndex = Math.floor(Math.random() * data.length);
