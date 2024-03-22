@@ -67,7 +67,7 @@ function gestorNotificaciones() {
                 const respuestaIncorrecta = selectedAlarm.incorrecta;
                 const categoria = selectedAlarm.categoria;
                 mostrarNotificacion(pregunta, respuestaCorrecta, respuestaIncorrecta, categoria);
-                cargarNuevaNotificacion(); // Llamar a cargarNuevaNotificacion() después de obtener los datos
+                
             })
             .catch(error => {
                 console.error('Error al cargar la notificación:', error);
@@ -103,7 +103,11 @@ function mostrarNotificacion(pregunta, respuestaCorrecta, respuestaIncorrecta, c
             </div>
         </div>
     `;
-    document.body.insertAdjacentHTML('beforeend', notificacion);
+    // Seleccionar la caja por su ID
+    const caja = document.getElementById('caja');
+
+    // Insertar el HTML de la notificación dentro de la caja
+    caja.insertAdjacentHTML('beforeend', notificacion);
 
     const nuevaNotificacion = document.getElementById(randomId); // Seleccionar la notificación por su ID único
     const randomX = Math.floor(Math.random() * (window.innerWidth - nuevaNotificacion.offsetWidth));
@@ -228,35 +232,98 @@ function obtenerImagenGiphy() {
         });
 }
 
+let notificacionFinalMostrada = false; // Bandera para controlar si la notificación final ya se mostró
+
 // Función para mostrar la notificación final con la imagen de Giphy
-function mostrarNotificacionFinal(imageAlt, mensaje) {
+function mostrarNotificacionFinal() {
+    // Verificar si se han mostrado ya 100 notificaciones y si la notificación final no se ha mostrado antes
+    if (contadorNotificaciones === 100 && !notificacionFinalMostrada) {
+        obtenerImagenGiphy()
+            .then(imageUrl => {
+                // Crear el nuevo div para la notificación final
+                const divFinal = document.createElement('div');
+                divFinal.classList.add('Final'); // Añadir una clase para estilos
+                // Agregar contenido al div
+                divFinal.innerHTML = `
+                    <div class="finalMain">
+                        <div class="imgFinal">
+                            <img src="${imageUrl}" alt="Imagen de Giphy">
+                        </div>
+                        <div class="textoFinal">
+                            <h2>¡Oh no!</h2>
+                            <p>Parece que eres demasiado lenta... Mueres por inanición, insalubridad y depresión. Además, parece que has suspendido todas tus asignaturas.</p>
+                        </div>
+                    </div>
+                    <button class="botonOtraVez">
+                       <img src="../assets/imagenes/reload.svg" alt="Icono de recarga">
+                       Inténtalo de nuevo
+                    </button>
+                `;
+                // Añadir el div al cuerpo del documento
+                document.body.appendChild(divFinal);
+                // Agregar un retraso de 2 segundos para mostrar el botón
+                setTimeout(function() {
+                    const botonOtraVez = divFinal.querySelector('.botonOtraVez');
+                    botonOtraVez.classList.add('mostrar');
+                    botonOtraVez.addEventListener('click', function() {
+                        // Redirigir al usuario al índice HTML
+                        location.reload();
+                    });
+                }, 2000);
+                notificacionFinalMostrada = true; // Marcar que la notificación final ha sido mostrada
+            })
+            .catch(error => {
+                console.error('Error al mostrar la notificación final:', error);
+            });
+    }
+}
+
+// Función para verificar si se debe mostrar la notificación final del hogar
+let notificacionFinalHogarMostrada = false; // Bandera para controlar si la notificación final ya se mostró
+
+// Función para verificar si se debe mostrar la notificación final del hogar
+function verificarNotificacionFinalHogar() {
+    if (puntosHogar === 0 && !notificacionFinalHogarMostrada) {
+        mostrarNotificacionFinalHogar();
+        notificacionFinalHogarMostrada = true; // Marcar que la notificación final ha sido mostrada
+    }
+}
+
+function mostrarNotificacionFinalHogar() {
     obtenerImagenGiphy()
         .then(imageUrl => {
-            const divFinal = document.createElement('div');
-            divFinal.classList.add('Final'); // Añadir una clase para estilos
-            divFinal.innerHTML = `
-                <div class="finalMain">
-                    <div class="imgFinal">
-                        <img src="${imageUrl}">
+            // Crear el nuevo div para la notificación final solo si los puntos de hogar son 0
+            if (puntosHogar === 0) {
+                const divFinal = document.createElement('div');
+                divFinal.classList.add('Final'); // Añadir una clase para estilos
+                // Agregar contenido al div
+                divFinal.innerHTML = `
+                    <div class="finalMain">
+                        <div class="imgFinal">
+                            <img src="${imageUrl}" alt="Imagen de Giphy">
+                        </div>
+                        <div class="textoFinal">
+                            <h2>¡Oh no!</h2>
+                            <p>Parece que la mierda de tu cocina ha atraido una manada de ratas a tu casa. mueres deborada por miles de pequeños colmillos.</p>
+                        </div>
                     </div>
-                    <div class="textoFinal">
-                        <h2>¡Oh no!</h2>
-                        <p>${mensaje}</p>
-                    </div>
-                </div>
-                <button class="botonOtraVez">
-                   <img src="assets/imagenes/reload.svg" alt="Icono de recarga">
-                   Inténtalo de nuevo
-                </button>
-            `;
-            document.body.appendChild(divFinal);
-            setTimeout(function() {
-                const botonOtraVez = divFinal.querySelector('.botonOtraVez');
-                botonOtraVez.classList.add('mostrar');
-                botonOtraVez.addEventListener('click', function() {
-                    location.reload();
-                });
-            }, 2000);
+                    <button class="botonOtraVez">
+                       <img src="../assets/imagenes/reload.svg" alt="Icono de recarga">
+                       Inténtalo de nuevo
+                    </button>
+                `;
+                // Añadir el div al cuerpo del documento
+                document.body.appendChild(divFinal);
+                // Agregar un retraso de 2 segundos para mostrar el botón
+                setTimeout(function() {
+                    const botonOtraVez = divFinal.querySelector('.botonOtraVez');
+                    botonOtraVez.classList.add('mostrar');
+                    botonOtraVez.addEventListener('click', function() {
+                        // Redirigir al usuario al índice HTML
+                        location.reload();
+                    });
+                }, 2000);
+            }
         })
         .catch(error => {
             console.error('Error al mostrar la notificación final:', error);
@@ -264,22 +331,103 @@ function mostrarNotificacionFinal(imageAlt, mensaje) {
 }
 
 // Función para verificar si se debe mostrar la notificación final del hogar
-function verificarNotificacionFinalHogar() {
-    if (puntosHogar === 0) {
-        mostrarNotificacionFinal("Imagen de Giphy", "Parece que la mierda de tu cocina ha atraido una manada de ratas a tu casa. mueres deborada por miles de pequeños colmillos.");
-    }
-}
+let notificacionFinalSaludMostrada = false; // Bandera para controlar si la notificación final ya se mostró
 
-// Función para verificar si se debe mostrar la notificación final de salud
+// Función para verificar si se debe mostrar la notificación final del hogar
 function verificarNotificacionFinalSalud() {
-    if (puntosSalud === 0) {
-        mostrarNotificacionFinal("Imagen de Giphy", "Parece que tu miedo irracional a llamar al médico ha impedido que identifiquen tu cancer de pulmón. Mueres sola y asustada.");
+    if (puntosSalud === 0 && !notificacionFinalSaludMostrada) {
+        mostrarNotificacionFinalSalud();
+        notificacionFinalSaludMostrada = true; // Marcar que la notificación final ha sido mostrada
     }
 }
 
-// Función para verificar si se debe mostrar la notificación final de estudios
+function mostrarNotificacionFinalSalud() {
+    obtenerImagenGiphy()
+        .then(imageUrl => {
+            // Crear el nuevo div para la notificación final solo si los puntos de hogar son 0
+            if (puntosSalud === 0 ) {
+                const divFinal = document.createElement('div');
+                divFinal.classList.add('Final'); // Añadir una clase para estilos
+                // Agregar contenido al div
+                divFinal.innerHTML = `
+                    <div class="finalMain">
+                        <div class="imgFinal">
+                            <img src="${imageUrl}" alt="Imagen de Giphy">
+                        </div>
+                        <div class="textoFinal">
+                            <h2>¡Oh no!</h2>
+                            <p>Parece que tu miedo irracional a llamar al médico ha impedido que identifiquen tu cancer de pulmón. Mueres sola y asustada.</p>
+                        </div>
+                    </div>
+                    <button class="botonOtraVez">
+                       <img src="../assets/imagenes/reload.svg" alt="Icono de recarga">
+                       Inténtalo de nuevo
+                    </button>
+                `;
+                // Añadir el div al cuerpo del documento
+                document.body.appendChild(divFinal);
+                // Agregar un retraso de 2 segundos para mostrar el botón
+                setTimeout(function() {
+                    const botonOtraVez = divFinal.querySelector('.botonOtraVez');
+                    botonOtraVez.classList.add('mostrar');
+                    botonOtraVez.addEventListener('click', function() {
+                        // Redirigir al usuario al índice HTML
+                        location.reload();
+                    });
+                }, 2000);
+            }
+        })
+        .catch(error => {
+            console.error('Error al mostrar la notificación final:', error);
+        });
+}
+// Función para verificar si se debe mostrar la notificación final del hogar
+let notificacionFinalEstudiosMostrada = false; // Bandera para controlar si la notificación final ya se mostró
+
+// Función para verificar si se debe mostrar la notificación final del hogar
 function verificarNotificacionFinalEstudios() {
-    if (puntosEstudios === 0) {
-        mostrarNotificacionFinal("Imagen de Giphy", "Parece que tu curriculum es tan malo que has salido en los periodicos como la peor profesional de España. Mueres debajo de un puente en el invierno de 2035.");
+    if (puntosEstudios === 0 && !notificacionFinalEstudiosMostrada) {
+        mostrarNotificacionFinalEstudios();
+        notificacionFinalEstudiosMostrada = true; // Marcar que la notificación final ha sido mostrada
     }
+}
+function mostrarNotificacionFinalEstudios() {
+    obtenerImagenGiphy()
+        .then(imageUrl => {
+            // Crear el nuevo div para la notificación final solo si los puntos de hogar son 0
+            if (puntosEstudios === 0) {
+                const divFinal = document.createElement('div');
+                divFinal.classList.add('Final'); // Añadir una clase para estilos
+                // Agregar contenido al div
+                divFinal.innerHTML = `
+                    <div class="finalMain">
+                        <div class="imgFinal">
+                            <img src="${imageUrl}" alt="Imagen de Giphy">
+                        </div>
+                        <div class="textoFinal">
+                            <h2>¡Oh no!</h2>
+                            <p>Parece que tu curriculum es tan malo que has salido en los periodicos como la peor profesional de España. Mueres debajo de un puente en el invierno de 2035.</p>
+                        </div>
+                    </div>
+                    <button class="botonOtraVez">
+                       <img src="../assets/imagenes/reload.svg" alt="Icono de recarga">
+                       Inténtalo de nuevo
+                    </button>
+                `;
+                // Añadir el div al cuerpo del documento
+                document.body.appendChild(divFinal);
+                // Agregar un retraso de 2 segundos para mostrar el botón
+                setTimeout(function() {
+                    const botonOtraVez = divFinal.querySelector('.botonOtraVez');
+                    botonOtraVez.classList.add('mostrar');
+                    botonOtraVez.addEventListener('click', function() {
+                        // Redirigir al usuario al índice HTML
+                        location.reload();
+                    });
+                }, 2000);
+            }
+        })
+        .catch(error => {
+            console.error('Error al mostrar la notificación final:', error);
+        });
 }
