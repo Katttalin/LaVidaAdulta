@@ -4,6 +4,9 @@
 @font-face 
     font-family: 'Cactus Jack Alternate'
     src: url('../fonts/Cactus Jack Alternate.ttf') format('truetype')
+@font-face 
+    font-family: 'Cactus Jack'
+    src: url('../fonts/Cactus Jack.ttf') format('truetype')
 @font-face
     font-family: 'RedactedScript-Regular'
     src: url('../fonts/RedactedScript-Regular.ttf') format('truetype')
@@ -12,12 +15,11 @@
     src: url('../fonts/TeenageKloudyRegular-PKpg7.ttf') format('truetype')
 
 body
-   width: 100vh
-   height: 100vw
+   width: 100vw
+   height: 100vh
    overflow: hidden
 
 .preguntas
-    position: fixed
     width: 100%
     max-height: 100vh
     height: 100%
@@ -52,6 +54,7 @@ body
     h2
         color: #fff
         font-family: Cactus Jack Alternate
+        font-weight: normal
 
 @keyframes rotateImage
     0%
@@ -81,52 +84,139 @@ body
         opacity: 0
         transform: translateY(5vh)
 
+@keyframes easeOut
+    0%
+        opacity: 1
+
+    100% 
+        opacity: 0
+
 .fondos
     position: fixed
     width: 100vw
     height: 100vh
-    
-    top: 0
-    left: 0
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
     display: flex
     justify-content: center
     align-items: center
     img
+        position: fixed
         width: 100vw
         height: 100vh
         object-fit: cover
+
+.fondoMovil
+    position: fixed
+    width: 100vw
+    height: 100vh
+    object-fit: cover
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+.casaNormal
+  opacity: 0
+  transition: opacity 2s ease
+
+.mostrarCasa
+  opacity: 1
+
+.marinaMovil
+    position: fixed
+    width: 100vw
+    height: 100vh
+    object-fit: cover
+    
 .sobreFondos
+    position: fixed
+    width: 100vw
+    height: 100vh
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    display: flex
+    justify-content: center
+    align-items: center
+    img
+        position: fixed
+        width: 100vw
+        height: auto
+        &.animacion-salida-img
+            animation: easeOut 2s ease-out forwards
+
+@keyframes cambioFuente
+    from
+        font-family: Cactus Jack Alternate
+        transform: translateX(0)
+    to 
+        font-family: Cactus Jack
+        transform: translateX(-0.17vw)
+    
+
+.textoSobreFondos
     z-index: 9990
     position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
     display: flex
     flex-direction: column
-    align-items: center
+    align-items: flex-end
     justify-content: center
-    gap: 50px
+    gap: 39vh
+    padding-right: 32vw
     height: 100vh
     width: 100vw
+    @media screen and ( max-width: 767px )
+        gap: 30vh
+        padding-top: 2vh
+        
+    button
+        z-index: 9991
+        border: none
+        background: none
+        cursor: pointer
+        animation: cambioFuente 0.7s infinite
+        font-size: 5vh
+        color: #fff
+        line-height: 4vh
+        margin: 1.4vh 0 0 0
+        &:hover
+            font-size: 7vh
+        &.animacion-salida-btn
+            font-family: Cactus Jack Alternate
+            animation: easeOutDown 2s ease-out forwards
+
+.textosTextos
+    display: flex
+    flex-direction: column
+    align-items: flex-end
     h1
-        font-family: TeenageKloudyRegular-PKpg7
+        font-family: Cactus Jack Alternate
         font-size: 15vh
+        font-weight: normal
         color: #fff
         margin: 0
+        line-height: 0vh
+        margin: 5vh 0 7vh 0
         &.animacion-salida-h1
             animation: easeOutUp 2s ease-out forwards
-    button
-        border: 0.3vh solid black
-        background-color: white
-        cursor: pointer
-        font-family: 'Cactus Jack Alternate'
+        @media screen and ( max-width: 767px )
+            font-size: 12.5vh
+    h2
+        font-family: Cactus Jack Alternate
         font-size: 5vh
-        line-height: 3vh
-        border-radius: 5vh
-        box-shadow: 0 0.75vh 0.42vh 0.33vh rgba(0, 0, 0, 0.2)
-        padding: 1.67vh 5.83vh 3vh 5.83vh
-        &:hover
-            color: $azul
-            font-size: 6vh
-        &.animacion-salida-btn
-            animation: easeOutDown 2s ease-out forwards
+        font-weight: normal
+        color: #fff
+        margin: 0
+        line-height: 0vh
+        &.otra
+            align-self: flex-start
+        &.animacion-salida-h1
+            animation: easeOutUp 2s ease-out forwards
+
 
 
 @keyframes entrada

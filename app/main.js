@@ -2,14 +2,27 @@ let intervalo;
 //INICIO//
 window.onload = function() {
     const btnNuevaPartida = document.getElementById('nuevaPartida');
+    const casaOscuro = document.querySelector('.casaOscuro');
+    const casaNormal = document.querySelector('.casaNormal');
 
     btnNuevaPartida.addEventListener('click', function() {
+        animarSecuenciaDeImagenes();
+        // Animación de transición entre imágenes
+        casaOscuro.classList.toggle('mostrarCasa');
+        casaNormal.classList.toggle('mostrarCasa');
+        
         // Agregar clases de animación a los elementos
         const h1Element = document.querySelector('#sobreFondos h1');
+        const h2Element = document.querySelector('#textosTextos h2');
+        const h22Element = document.querySelector('#seQueda');
         const buttonElement = document.querySelector('#sobreFondos button');
+        const imgElement = document.querySelector('#sobreFondos img');
         
         h1Element.classList.add('animacion-salida-h1');
+        h2Element.classList.add('animacion-salida-h1');
+        h22Element.classList.add('animacion-salida-h1');
         buttonElement.classList.add('animacion-salida-btn');
+        imgElement.classList.add('animacion-salida-img');
         
         setTimeout(() => {
             console.log('Llamando a mostrarNotificacion y cargarNuevaNotificacion');
@@ -26,6 +39,22 @@ window.onload = function() {
     });
 };
 
+function animarSecuenciaDeImagenes() {
+    var imagenes = ["marina_1.png", "marina_2.png", "marina_3.png", "marina_4.png"];
+    var indice = 0;
+    var fondoMovil = document.getElementById("marinaMovil");
+
+    function cambiarImagen() {
+        marinaMovil.innerHTML = ""; // Limpiar el div antes de agregar una nueva imagen
+        var img = document.createElement("img");
+        img.src = "assets/imagenes/" + imagenes[indice];
+        fondoMovil.appendChild(img);
+        indice = (indice + 1) % imagenes.length; // Avanzar al siguiente índice, circularmente
+    }
+
+    var fondoIntervalo = setInterval(cambiarImagen, 2000);
+}
+
 function crearDivEnPortrait() {
     let portraitDiv = document.getElementById('portraitDiv');
     
@@ -41,8 +70,9 @@ function crearDivEnPortrait() {
             <div class="portrait">
                 <div class="fondoPortrait">
                     <div class="contenidoPortrait">
-                       <img src="assets/imagenes/rotate.svg">
                        <h2>Gira la pantalla</h2>
+                       <img src="assets/imagenes/rotate.svg">
+                       <h2>Porfa :)</h2>
                     </div>
                 </div>
                 
