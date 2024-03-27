@@ -88,27 +88,545 @@
         "categoria": "estudios",
         "alarma": "Te llega una oferta de trabajo (¡De lo tuyo!)",
         "correcta": "Estudia y trabaja a la vez",
-        "incorrecta": "Dejala pasar, no tienes tiempo"
+        "incorrecta": "Déjala pasar, no tienes tiempo"
     },
     {
         "id": "14",
         "categoria": "estudios",
         "alarma": "Tienes una entrevista de trabajo",
         "correcta": "Ensaya con tu ama",
-        "incorrecta": "Échate un porro pa relajarte"
+        "incorrecta": "échate un porro pa relajarte"
     },
     {
         "id": "15",
         "categoria": "estudios",
-        "alarma": "Te has pillau por tu profe",
-        "correcta": "Deja su asignatura",
-        "incorrecta": "Tiratelo"
+        "alarma": "Tienes un examen importante mañana y no has estudiado nada",
+        "correcta": "léete los apuntes en el metro",
+        "incorrecta": "Estudia toda la noche"
     },
     {
         "id": "16",
+        "categoria": "hogar",
+        "alarma": "tu horno está humeando",
+        "correcta": "Abre las ventanas",
+        "incorrecta": "llama a los bomberos"
+    },
+    {
+        "id": "17",
+        "categoria": "hogar",
+        "alarma": "Se te ha inundado el baño",
+        "correcta": "Cierra la llave de paso del agua y llama al fontanero",
+        "incorrecta": "Haz una carrera de natación improvisada"
+    },
+    {
+        "id": "18",
+        "categoria": "hogar",
+        "alarma": "La nevera hace ruidos extraños",
+        "correcta": "Revisa si hay algo atascado y llama al técnico",
+        "incorrecta": "Pon música a todo volumen"
+    },
+    {
+        "id": "19",
+        "categoria": "hogar",
+        "alarma": "Hay una plaga de hormigas en la cocina",
+        "correcta": "Limpia minuciosamente y busca soluciones antiplagas",
+        "incorrecta": "Ofrece a las hormigas un contrato de alquiler"
+    },
+    {
+        "id": "20",
+        "categoria": "hogar",
+        "alarma": "suena la alarma de incendios",
+        "correcta": "Evacua el edificio",
+        "incorrecta": "llama a tu ama llorando"
+    },
+    {
+        "id": "21",
+        "categoria": "hogar",
+        "alarma": "El grifo gotea sin parar",
+        "correcta": "llama a un fontanero",
+        "incorrecta": "pide ayuda al vecino guapo"
+    },
+    {
+        "id": "22",
+        "categoria": "hogar",
+        "alarma": "huele a gas",
+        "correcta": "llama a los bomberos",
+        "incorrecta": "échate un piti pa pensar"
+    },
+    {
+        "id": "23",
+        "categoria": "hogar",
+        "alarma": "Se ha fundido un fusible",
+        "correcta": "llama a tu aita y cambialo con su ayuda",
+        "incorrecta": "Pigual encendiendo y apagando la luz se soluciona"
+    },
+    {
+        "id": "24",
+        "categoria": "hogar",
+        "alarma": "El agua de la ducha está fria",
+        "correcta": "Revisa el calentador de agua",
+        "incorrecta": "duchate con agua fría (es bueno pal pelo)"
+    },
+    {
+        "id": "25",
+        "categoria": "hogar",
+        "alarma": "Se ha cortado la electricidad",
+        "correcta": "llama a la compañía eléctrica",
+        "incorrecta": "Organiza un akelarre a la luz de las velas en casa"
+    },
+    {
+        "id": "26",
+        "categoria": "hogar",
+        "alarma": "es verano, obviamente no tienes aire acondicionado",
+        "correcta": "huye de madrid",
+        "incorrecta": "vete a una de las piscinas públicas (está cerrada)"
+    },
+    {
+        "id": "27",
+        "categoria": "hogar",
+        "alarma": "la llave no entra en la cerradura",
+        "correcta": "mete un lapiz en la cerradura",
+        "incorrecta": "entra por la ventana"
+    },
+    {
+        "id": "28",
+        "categoria": "hogar",
+        "alarma": "El microhondas echa chispas",
+        "correcta": "Desenchúfalo",
+        "incorrecta": "calientate el café anyways"
+    },
+    {
+        "id": "29",
+        "categoria": "hogar",
+        "alarma": "La puerta del frigo no cierra",
+        "correcta": "llama a tu casero",
+        "incorrecta": "cierralo con cinta americana"
+    },
+    {
+        "id": "30",
+        "categoria": "hogar",
+        "alarma": "El termómetro de la nevera está muy alto",
+        "correcta": "Revisa el termostato",
+        "incorrecta": "¿hay un termómetro en el frigo?"
+    },
+    {
+        "id": "31",
+        "categoria": "hogar",
+        "alarma": "El detector de humo se pone a pitar",
+        "correcta": "deja de fumar en tu casa",
+        "incorrecta": "ponle un calcetín encima"
+    },
+    {
+        "id": "32",
+        "categoria": "hogar",
+        "alarma": "Esta sonando el timbre",
+        "correcta": "responde a la puerta",
+        "incorrecta": "Ignóralo, que loco va a tu casa sin avisar"
+    },
+    {
+        "id": "33",
+        "categoria": "hogar",
+        "alarma": "tu tele de 2003 se ha roto",
+        "correcta": "usa tu portatil, la tele es pa ambientar",
+        "incorrecta": "píllate otra"
+    },
+    {
+        "id": "34",
+        "categoria": "hogar",
+        "alarma": "está saliendo mucha agua de tu vater",
+        "correcta": "cierra la llave tocha del baño",
+        "incorrecta": "corre a por la fregona"
+    },
+    {
+        "id": "35",
+        "categoria": "hogar",
+        "alarma": "La lavadora ha dejado de funcionar a medio lavado",
+        "correcta": "Reinicia la lavadora y limpia el desagüe",
+        "incorrecta": "Deja que la ropa se pudra"
+    },
+    {
+        "id": "36",
+        "categoria": "hogar",
+        "alarma": "tu colchón tiene un valle en el medio",
+        "correcta": "dale la vuelta",
+        "incorrecta": "así se siente más cozy"
+    },
+    {
+        "id": "37",
+        "categoria": "hogar",
+        "alarma": "la calefacción no funciona",
+        "correcta": "ponte toda tu ropa y envuelvete en mantas",
+        "incorrecta": "paga la factura del gas"
+    },
+    {
+        "id": "38",
+        "categoria": "hogar",
+        "alarma": "tu gato se ha escapado por la ventana",
+        "correcta": "abre la ventana y pon su comida favorita en el alfeizar",
+        "incorrecta": "empapela tu barrio con su foto"
+    },
+    {
+        "id": "39",
+        "categoria": "hogar",
+        "alarma": "La bombilla del baño se ha fundido",
+        "correcta": "Compra una nueva y cámbiala",
+        "incorrecta": "la linterna del móvil funciona bien"
+    },
+    {
+        "id": "40",
+        "categoria": "hogar",
+        "alarma": "El grifo de la bañera no para de gotear",
+        "correcta": "reemplaza el grifo para no desperdiciar agua",
+        "incorrecta": "cinta aislante y palante"
+    },
+    {
+        "id": "41",
         "categoria": "salud",
-        "alarma": "Tienes pelos en los pezones",
-        "correcta": "Depilatelos",
-        "incorrecta": "Da igual, no tienes novio"
+        "alarma": "solo compras en la zona de precocinados des super",
+        "correcta": "aprende a cocinar y pillate una olla express",
+        "incorrecta": "sigue siendo verdura aunque venga en tetabrick, no?"
+    },
+    {
+        "id": "42",
+        "categoria": "salud",
+        "alarma": "estás dispersa y duermes 14 horas al día",
+        "correcta": "hazte un análisis de sangre",
+        "incorrecta": "hazte adicta al monster"
+    },
+    {
+        "id": "43",
+        "categoria": "salud",
+        "alarma": "necesitas chocolate para mantenerte despierta",
+        "correcta": "come una fruta de vez en cuando",
+        "incorrecta": "el cacao es natural..."
+    },
+    {
+        "id": "44",
+        "categoria": "salud",
+        "alarma": "tienes jaquecas todo el rato",
+        "correcta": "bebe agua",
+        "incorrecta": "café y cigarro, famosa solución pal dolor de cabeza"
+    },
+    {
+        "id": "45",
+        "categoria": "salud",
+        "alarma": "te saltas la hora de comer por las prisas",
+        "correcta": "llevate un taper a la uni",
+        "incorrecta": "otra pizza de la panadería te mantendrá viva"
+    },
+    {
+        "id": "46",
+        "categoria": "salud",
+        "alarma": "no motivación para nada",
+        "correcta": "recupera tus hobbies y sal de casa",
+        "incorrecta": "metete todo juego de tronos en una semana"
+    },
+    {
+        "id": "47",
+        "categoria": "salud",
+        "alarma": "tienes 7 llamadas perdidas de tu madre",
+        "correcta": "Habla con ella, siempre te acaba sentando bien",
+        "incorrecta": "ignora otra más, donde caben 7 caben 8"
+    },
+    {
+        "id": "48",
+        "categoria": "salud",
+        "alarma": "sientes que se te va a salir el corazón del pecho",
+        "correcta": "Habla con álguien, distráete",
+        "incorrecta": "metete un ansiolítico y sigue con tus obligaciones"
+    },
+    {
+        "id": "49",
+        "categoria": "salud",
+        "alarma": "tienes moho negro en el techo del baño",
+        "correcta": "llama a tu casero, es peligroso",
+        "incorrecta": "son solo unos meses más en esta casa, da igual"
+    },
+    {
+        "id": "50",
+        "categoria": "salud",
+        "alarma": "te duele el brazo izquierdo (¡y el pecho!)",
+        "correcta": "Llama a emergencias y ve al hospital de inmediato",
+        "incorrecta": "Haz yoga para calmar los nervios"
+    },
+    {
+        "id": "51",
+        "categoria": "salud",
+        "alarma": "se te ha trminado la receta de tus pastillas",
+        "correcta": "Solicita una cita con tu médico y renueva la receta",
+        "incorrecta": "pillale algo parecido a tu colega"
+    },
+    {
+        "id": "52",
+        "categoria": "salud",
+        "alarma": "la regla te noquea totalmente",
+        "correcta": "llama a la uni, hoy te quedas en casa",
+        "incorrecta": "tómate 4 ibuprofenos y ve a clase"
+    },
+    {
+        "id": "53",
+        "categoria": "salud",
+        "alarma": "Te despiertas con un sarpullido horrible en la pierna",
+        "correcta": "vete al dermatólogo",
+        "incorrecta": "hazte una crema casera de yogurt y avena"
+    },
+    {
+        "id": "54",
+        "categoria": "salud",
+        "alarma": "suenas como una locomotora vieja cuando te ries",
+        "correcta": "igual tienes que dejar de fumar...",
+        "incorrecta": "Prueba a respirar profundamente y decir ooom"
+    },
+    {
+        "id": "55",
+        "categoria": "salud",
+        "alarma": "tienes el estómago hinchado y dolorido",
+        "correcta": "vete a un médico a hacerte pruebas de alergia",
+        "incorrecta": "empieza una dieta detox"
+    },
+    {
+        "id": "56",
+        "categoria": "salud",
+        "alarma": "llevas una semana super mareada",
+        "correcta": "come algo y bebe agua",
+        "incorrecta": "si te bebes una cerveza el mareo tendrá más sentido"
+    },
+    {
+        "id": "57",
+        "categoria": "salud",
+        "alarma": "te ha dau un tirón en el cuello",
+        "correcta": "mete un calcetín lleno de arroz en el microhondas",
+        "incorrecta": "Toma analgésicos y espera a que desaparezca"
+    },
+    {
+        "id": "58",
+        "categoria": "salud",
+        "alarma": "te despiertas desorientada y agotada",
+        "correcta": "Haz un análisis de sangre para ver si tienes anemia",
+        "incorrecta": "esta es tu nueva normalidad, sigue adelante"
+    },
+    {
+        "id": "59",
+        "categoria": "salud",
+        "alarma": "Te pitan los oidos todo el rato",
+        "correcta": "deja de escuchar techno a tope con cascos",
+        "incorrecta": "escuchar música a tope de volumen tapa el pitido..."
+    },
+    {
+        "id": "60",
+        "categoria": "salud",
+        "alarma": "siempre te duele la tripa después de comer",
+        "correcta": "llama al médico, fijo que tienes alergias",
+        "incorrecta": "igual solo tienes que cagar..."
+    },
+    {
+        "id": "61",
+        "categoria": "salud",
+        "alarma": "estas blanca como un fantsame victoriano",
+        "correcta": "sal de tu casa, estate un rato en una terraza",
+        "incorrecta": "fake tan :)"
+    },
+    {
+        "id": "62",
+        "categoria": "salud",
+        "alarma": "te cansas subiendo las escaleras",
+        "correcta": "igual hay que empezar a hacer algo de deporte",
+        "incorrecta": "coje el ascensor"
+    },
+    {
+        "id": "63",
+        "categoria": "salud",
+        "alarma": "Tardas 3 horas en dormirte por las noches",
+        "correcta": "no te pongas 3 episodios de una serie antes de dormir",
+        "incorrecta": "incluye la dormidina en tu rutina diraria"
+    },
+    {
+        "id": "64",
+        "categoria": "salud",
+        "alarma": "estas de mal humor todo el rato",
+        "correcta": "vete al psicólogo",
+        "incorrecta": "chilla un rato a tu compi de piso"
+    },
+    {
+        "id": "65",
+        "categoria": "salud",
+        "alarma": "te duelen mogollón los ojos por las noches",
+        "correcta": "baja la cantidad de tiempo que pasas con el ordenador",
+        "incorrecta": "ponte rodajas de pepino y bolsas de té en los ojos"
+    },
+    {
+        "id": "66",
+        "categoria": "estudios",
+        "alarma": "Llevas una semana sin parar en la uni",
+        "correcta": "da igual que la entrega esté a medias, para un rato",
+        "incorrecta": "quieres entregar algo chulo, sigue"
+    },
+    {
+        "id": "67",
+        "categoria": "estudios",
+        "alarma": "te abruma todo lo que tienes que hacer",
+        "correcta": "organiza las cosas por urgencia, y planea descansos",
+        "incorrecta": "Intenta hacer todo al mismo tiempo"
+    },
+    {
+        "id": "68",
+        "categoria": "estudios",
+        "alarma": "Te has acostado a las 3 de la mañana pa currar",
+        "correcta": "a la siguiente ponte una hora límite",
+        "incorrecta": "Sigue contu rutina, no da tiempo!"
+    },
+    {
+        "id": "69",
+        "categoria": "estudios",
+        "alarma": "estas super desmotivada con la carrera",
+        "correcta": "recuerda porqué la estudias, si no tiene sentido déjala",
+        "incorrecta": "a nadie le gusta empollar, terminala"
+    },
+    {
+        "id": "70",
+        "categoria": "estudios",
+        "alarma": "no consigues concentrarte en clase",
+        "correcta": "haz algo con las manos, te ayudará",
+        "incorrecta": "mira al profe sin parpadear durante 2 horas"
+    },
+    {
+        "id": "71",
+        "categoria": "estudios",
+        "alarma": "nadie en tu familia entiende los que estudias",
+        "correcta": "dí que estudias otra cosa, total...",
+        "incorrecta": "explicales por septima ve lo que es un diseñador gráfico"
+    },
+    {
+        "id": "72",
+        "categoria": "estudios",
+        "alarma": "No ves a tus amigos desde hace dos semanas",
+        "correcta": "son importantes, llamales",
+        "incorrecta": "vas a suspender! ya hablaréis en verano"
+    },
+    {
+        "id": "73",
+        "categoria": "estudios",
+        "alarma": "lo que estudias y lo que haces en tu tiempo libre no coinciden",
+        "correcta": "busca algo que te interese en tu ámbito, busca trabajo por ahí",
+        "incorrecta": "no todos los trabajos tienen que ser pasionales, pa eso estñán los hobbies"
+    },
+    {
+        "id": "74",
+        "categoria": "estudios",
+        "alarma": "Tus vacaciones se han convertido en trabajo desde casa",
+        "correcta": "pasa unos días sin pensar en la uni, ya lo solucionarás",
+        "incorrecta": "sucumbe a la presión"
+    },
+    {
+        "id": "75",
+        "categoria": "estudios",
+        "alarma": "odias una de tus asignaturas",
+        "correcta": "puedes odiarla y sacartela, métele el menor tiempo posible",
+        "incorrecta": "déjala, problema pal año que viene"
+    },
+    {
+        "id": "76",
+        "categoria": "estudios",
+        "alarma": "tienes super mala memoria, vas a pencar el examen de mañana",
+        "correcta": "si lo entiendes puedes inventartelo un poco...",
+        "incorrecta": "Memoriza el material sin entenderlo y espera aprobar el examen"
+    },
+    {
+        "id": "77",
+        "categoria": "estudios",
+        "alarma": "estás megaestresada",
+        "correcta": "ponte una peli que te mole, con palomitas :)",
+        "incorrecta": "ansiolíticos (o una cerve)"
+    },
+    {
+        "id": "78",
+        "categoria": "estudios",
+        "alarma": "estudiar y trabajar no se parecen nada estas perdida en tu nuevo curro",
+        "correcta": "no tienes que hacerlo bien a la primera, pregunta a tu jefe",
+        "incorrecta": "deja el curro, eres una impostora"
+    },
+    {
+        "id": "79",
+        "categoria": "estudios",
+        "alarma": "te ofrecen unas prácticas a jornada completa no remuneradas",
+        "correcta": "wtf, no",
+        "incorrecta": "por lo menos te sirven pal curriculum..."
+    },
+    {
+        "id": "80",
+        "categoria": "estudios",
+        "alarma": "tu jefe de prácticas te pide que metas horas en casa",
+        "correcta": "no hagas eso, te lo pedirá más",
+        "incorrecta": "quieres caerle bien, solo esta vez..."
+    },
+    {
+        "id": "81",
+        "categoria": "estudios",
+        "alarma": "tienes demasiadas asignaturas",
+        "correcta": "concentrate en las que te molan, más de un 5 es vanidad!",
+        "incorrecta": "tienes que ser perfecta en todas, métele el turbo"
+    },
+    {
+        "id": "82",
+        "categoria": "estudios",
+        "alarma": "no hay curro de lo tuyo en españa",
+        "correcta": "vete al extranjero",
+        "incorrecta": "curra de otra cosa, igual al final saldrá algo"
+    },
+    {
+        "id": "83",
+        "categoria": "estudios",
+        "alarma": "no sabes si lo que estudias te servirá para currar de lo que quieres",
+        "correcta": "puedes ir trabajando de lo tuyo mientras estudias",
+        "incorrecta": "ya lo pensarás cuando te gradues"
+    },
+    {
+        "id": "84",
+        "categoria": "estudios",
+        "alarma": "Sientes que todos tus compañeros son mejores que tú",
+        "correcta": "no te rayes, aprende lo que puedas de ellos",
+        "incorrecta": "metele horas pa ser la mejor"
+    },
+    {
+        "id": "85",
+        "categoria": "estudios",
+        "alarma": "no consigues un hueco en las optativas que te molan",
+        "correcta": "haz lo que quieras fuera, sacate la optativa más facil",
+        "incorrecta": "vete acumulando créditos sin cursas, igual el año que viene hay suerte"
+    },
+    {
+        "id": "86",
+        "categoria": "estudios",
+        "alarma": "no puedes pensar",
+        "correcta": "tomate un día de salud mental",
+        "incorrecta": "pa que sirve eso?"
+    },
+    {
+        "id": "87",
+        "categoria": "estudios",
+        "alarma": "te aburres en clase",
+        "correcta": "sácale algo de interés a los proyectos que tengas que hacer",
+        "incorrecta": "Acepta la situación, a veces la vida es así"
+    },
+    {
+        "id": "88",
+        "categoria": "estudios",
+        "alarma": "has sacado super malas notas",
+        "correcta": "estas aprobada? suficiente",
+        "incorrecta": "fuck, confirmación de que no sirves para nada"
+    },
+    {
+        "id": "89",
+        "categoria": "estudios",
+        "alarma": "tu profe te odia",
+        "correcta": "pasa, ya se le olvidará que existes",
+        "incorrecta": "respondele, discutir con un profe es super productivo"
+    },
+    {
+        "id": "90",
+        "categoria": "estudios",
+        "alarma": "quieres que tu profe te diga que lo haces todo genial",
+        "correcta": "llama a tus padres,te estás haciendo el lio",
+        "incorrecta": "hazle un rato la pelota, una necesita aprobación!"
     }
 ]
