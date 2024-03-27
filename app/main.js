@@ -124,15 +124,22 @@ function obtenerDatosAleatorios() {
 function mostrarNotificacion(pregunta, respuestaCorrecta, respuestaIncorrecta, categoria) {
     console.log('Mostrando notificación...');
     const randomId = 'notificacion_' + Math.random().toString(36).substr(2, 9); // Generar un identificador único
+    
+    // Crear un array con las respuestas
+    const respuestas = [respuestaCorrecta, respuestaIncorrecta];
+    // Ordenar aleatoriamente las respuestas
+    respuestas.sort(() => Math.random() - 0.5);
+    
     const notificacion = `
         <div class="notificacion" id="${randomId}"> <!-- Agregar el ID único -->
             <p class=pregunta>${pregunta}</p>
             <div class=respuestas>
-              <button onclick="responder(true, '${categoria}', '${randomId}')">${respuestaCorrecta}</button>
-              <button onclick="responder(false, '${categoria}', '${randomId}')">${respuestaIncorrecta}</button>
+              <button onclick="responder(${respuestas[0] === respuestaCorrecta}, '${categoria}', '${randomId}')">${respuestas[0]}</button>
+              <button onclick="responder(${respuestas[1] === respuestaCorrecta}, '${categoria}', '${randomId}')">${respuestas[1]}</button>
             </div>
         </div>
     `;
+    
     // Seleccionar la caja por su ID
     const caja = document.getElementById('caja');
 
@@ -150,7 +157,6 @@ function mostrarNotificacion(pregunta, respuestaCorrecta, respuestaIncorrecta, c
         ajustarIntervalo(); 
     }, 100);
 }
-
 
 // Cargar y mostrar una nueva notificación
 function cargarNuevaNotificacion() {
