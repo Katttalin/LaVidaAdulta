@@ -74,7 +74,7 @@ body
     
     100%
         opacity: 0
-        transform: translateY(-5vh)
+        transform: translateY(-8vh)
 @keyframes easeOutDown
     0%
         opacity: 1
@@ -82,7 +82,7 @@ body
 
     100% 
         opacity: 0
-        transform: translateY(5vh)
+        transform: translateY(8vh)
 
 @keyframes easeOut
     0%
@@ -116,12 +116,33 @@ body
     left: 50%
     transform: translate(-50%, -50%)
 
+.casaOscuro
+  transform: scale(1.1)
+  &.animacionOscuro
+    transform: scale(1)
+    animation: escalaCasaOscuro 2s ease
+
 .casaNormal
   opacity: 0
-  transition: opacity 2s ease
+  transform: scale(1.1)
+  &.animacionCasaNormal
+    opacity: 1
+    transform: scale(1)
+    animation: animacionCasaNormal 2s ease
 
-.mostrarCasa
-  opacity: 1
+@keyframes escalaCasaOscuro
+  0%
+    transform: scale(1.1)
+  100%
+    transform: scale(1)
+
+@keyframes animacionCasaNormal
+  0%
+    opacity: 0
+    transform: scale(1.1)
+  100%
+    opacity: 1
+    transform: scale(1)
 
 .marinaMovil
     position: fixed
@@ -144,7 +165,7 @@ body
         width: 100vw
         height: auto
         &.animacion-salida-img
-            animation: easeOut 2s ease-out forwards
+            animation: easeOut 1s ease-out forwards
 
 @keyframes cambioFuente
     from
@@ -187,7 +208,7 @@ body
             font-size: 7vh
         &.animacion-salida-btn
             font-family: Cactus Jack Alternate
-            animation: easeOutDown 2s ease-out forwards
+            animation: easeOutDown 1s ease-out forwards
 
 .textosTextos
     display: flex
@@ -202,7 +223,7 @@ body
         line-height: 0vh
         margin: 5vh 0 7vh 0
         &.animacion-salida-h1
-            animation: easeOutUp 2s ease-out forwards
+            animation: easeOutUp 1s ease-out forwards
         @media screen and ( max-width: 767px )
             font-size: 12.5vh
     h2
@@ -215,7 +236,7 @@ body
         &.otra
             align-self: flex-start
         &.animacion-salida-h1
-            animation: easeOutUp 2s ease-out forwards
+            animation: easeOutUp 1s ease-out forwards
 
 
 
@@ -303,7 +324,7 @@ body
     display: flex
     flex-direction: row
     gap: 4vh
-    width: 50vw
+    width: 43vw
     img
         width: 40vh
         height: 30vh

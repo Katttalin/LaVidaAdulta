@@ -8,8 +8,10 @@ window.onload = function() {
     btnNuevaPartida.addEventListener('click', function() {
         animarSecuenciaDeImagenes();
         // Animación de transición entre imágenes
-        casaOscuro.classList.toggle('mostrarCasa');
-        casaNormal.classList.toggle('mostrarCasa');
+        var casaOscuroE = document.querySelector('.casaOscuro');
+        var casaNormalE = document.querySelector('.casaNormal');
+        casaOscuroE.classList.add('animacionOscuro');
+        casaNormalE.classList.add('animacionCasaNormal');
         
         // Agregar clases de animación a los elementos
         const h1Element = document.querySelector('#sobreFondos h1');
@@ -291,7 +293,7 @@ function mostrarNotificacionFinal() {
                         </div>
                     </div>
                     <button class="botonOtraVez">
-                       <img src="../assets/imagenes/reload.svg" alt="Icono de recarga">
+                       <img src="assets/imagenes/reload.svg" alt="Icono de recarga">
                        Inténtalo de nuevo
                     </button>
                 `;
@@ -344,7 +346,7 @@ function mostrarNotificacionFinalHogar() {
                         </div>
                     </div>
                     <button class="botonOtraVez">
-                       <img src="../assets/imagenes/reload.svg" alt="Icono de recarga">
+                       <img src="assets/imagenes/reload.svg" alt="Icono de recarga">
                        Inténtalo de nuevo
                     </button>
                 `;
@@ -396,7 +398,7 @@ function mostrarNotificacionFinalSalud() {
                         </div>
                     </div>
                     <button class="botonOtraVez">
-                       <img src="../assets/imagenes/reload.svg" alt="Icono de recarga">
+                       <img src="assets/imagenes/reload.svg" alt="Icono de recarga">
                        Inténtalo de nuevo
                     </button>
                 `;
@@ -446,7 +448,7 @@ function mostrarNotificacionFinalEstudios() {
                         </div>
                     </div>
                     <button class="botonOtraVez">
-                       <img src="../assets/imagenes/reload.svg" alt="Icono de recarga">
+                       <img src="assets/imagenes/reload.svg" alt="Icono de recarga">
                        Inténtalo de nuevo
                     </button>
                 `;

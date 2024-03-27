@@ -542,7 +542,7 @@
         "id": "78",
         "categoria": "estudios",
         "alarma": "estudiar y trabajar no se parecen nada estas perdida en tu nuevo curro",
-        "correcta": "no tienes que hacerlo bien a la primera, pregunta a tu jefe",
+        "correcta": "no tienes que hacerlo bien a la primera",
         "incorrecta": "deja el curro, eres una impostora"
     },
     {
@@ -576,7 +576,7 @@
     {
         "id": "83",
         "categoria": "estudios",
-        "alarma": "no sabes si lo que estudias te servirá para currar de lo que quieres",
+        "alarma": "lo que estudias no te servirá para currar de lo tuyo",
         "correcta": "puedes ir trabajando de lo tuyo mientras estudias",
         "incorrecta": "ya lo pensarás cuando te gradues"
     },
@@ -584,15 +584,15 @@
         "id": "84",
         "categoria": "estudios",
         "alarma": "Sientes que todos tus compañeros son mejores que tú",
-        "correcta": "no te rayes, aprende lo que puedas de ellos",
-        "incorrecta": "metele horas pa ser la mejor"
+        "correcta": "aprende lo que puedas de ellos",
+        "incorrecta": "métele horas pa ser la mejor"
     },
     {
         "id": "85",
         "categoria": "estudios",
         "alarma": "no consigues un hueco en las optativas que te molan",
-        "correcta": "haz lo que quieras fuera, sacate la optativa más facil",
-        "incorrecta": "vete acumulando créditos sin cursas, igual el año que viene hay suerte"
+        "correcta": "sáate la optativa más facil",
+        "incorrecta": "igual el año que viene hay suerte"
     },
     {
         "id": "86",
@@ -605,8 +605,8 @@
         "id": "87",
         "categoria": "estudios",
         "alarma": "te aburres en clase",
-        "correcta": "sácale algo de interés a los proyectos que tengas que hacer",
-        "incorrecta": "Acepta la situación, a veces la vida es así"
+        "correcta": "sácale algo de interés a los proyectos obligatorio",
+        "incorrecta": "A veces la vida es así..."
     },
     {
         "id": "88",
