@@ -184,18 +184,14 @@ body
     transform: translate(-50%, -50%)
     display: flex
     flex-direction: column
-    align-items: flex-end
-    justify-content: center
-    gap: 39vh
-    padding-right: 32vw
-    height: 100vh
-    width: 100vw
-    @media screen and ( max-width: 767px )
-        gap: 30vh
-        padding-top: 2vh
+    justify-content: space-between
+    padding-top: 2vh
+    height: 47vh
+    width: 35vw
         
     button
         z-index: 9991
+        align-self: flex-end
         border: none
         background: none
         cursor: pointer
@@ -213,10 +209,9 @@ body
 .textosTextos
     display: flex
     flex-direction: column
-    align-items: flex-end
     h1
         font-family: Cactus Jack Alternate
-        font-size: 15vh
+        font-size: 12.5vh
         font-weight: normal
         color: #fff
         margin: 0
@@ -224,8 +219,7 @@ body
         margin: 5vh 0 7vh 0
         &.animacion-salida-h1
             animation: easeOutUp 1s ease-out forwards
-        @media screen and ( max-width: 767px )
-            font-size: 12.5vh
+
     h2
         font-family: Cactus Jack Alternate
         font-size: 5vh
@@ -233,6 +227,7 @@ body
         color: #fff
         margin: 0
         line-height: 0vh
+        align-self: flex-end
         &.otra
             align-self: flex-start
         &.animacion-salida-h1
