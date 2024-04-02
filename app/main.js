@@ -1,10 +1,38 @@
 let intervalo;
 //INICIO//
 window.onload = function() {
+    const btnTutorial = document.getElementById('tutorial');
     const btnNuevaPartida = document.getElementById('nuevaPartida');
     const casaOscuro = document.querySelector('.casaOscuro');
     const casaNormal = document.querySelector('.casaNormal');
-
+    btnTutorial.addEventListener('click', function() {
+        const tutorialInicio = `
+            <div class="tutorialInicio">
+                <div class=headerTutorial>
+                    <h1>¿Cómo se juega?</h1>
+                    <img src="assets/imagenes/close.svg" id="closeButton">
+                </div>
+                <div class="contenidoTutorial">
+                       <p class=textoTutorial>Este es un juego que imita la asfíxia de la vida adulta. Para sobrevivir deberás responder rápida e inteligentemente a los pequeños dramas del día a día.</p>
+                       <p class=textoTutorial>Cada crisis generará una notificación con dos posibles respuestas. Si respondes correctamente desaparecerá, si no, se quedará en la pantalla como recordatorio de tus errores.</p>
+                </div>
+                <div class=footerTutorial>
+                    <h2>Hazlo lo mejor que puedas...</h2>
+                </div>
+            </div>
+        `;
+        // Seleccionar la caja por su ID
+        const caja = document.getElementById('caja');
+        // Insertar el HTML de la notificación dentro de la caja
+        caja.insertAdjacentHTML('beforeend', tutorialInicio);
+        // Agregar evento clic al botón close
+        const closeButton = document.getElementById('closeButton');
+        closeButton.addEventListener('click', function() {
+           // Seleccionar el div tutorialInicio y eliminarlo del DOM
+           const tutorialDiv = document.querySelector('.tutorialInicio');
+           tutorialDiv.remove();
+        });
+    });
     btnNuevaPartida.addEventListener('click', function() {
         animarSecuenciaDeImagenes();
         // Animación de transición entre imágenes
@@ -17,13 +45,15 @@ window.onload = function() {
         const h1Element = document.querySelector('#sobreFondos h1');
         const h2Element = document.querySelector('#textosTextos h2');
         const h22Element = document.querySelector('#seQueda');
-        const buttonElement = document.querySelector('#sobreFondos button');
+        const buttonElement1 = document.querySelector('.tutorial');
+        const buttonElement2 = document.querySelector('.nuevaPartida');
         const imgElement = document.querySelector('#sobreFondos img');
         
         h1Element.classList.add('animacion-salida-h1');
         h2Element.classList.add('animacion-salida-h1');
         h22Element.classList.add('animacion-salida-h1');
-        buttonElement.classList.add('animacion-salida-btn');
+        buttonElement1.classList.add('animacion-salida-btn');
+        buttonElement2.classList.add('animacion-salida-btn');
         imgElement.classList.add('animacion-salida-img');
         
         setTimeout(() => {
@@ -33,11 +63,11 @@ window.onload = function() {
         // Intervalo inicial de 4 segundos
         let intervalo = setInterval(cargarNuevaNotificacion, 10000)
         function ajustarIntervalo() {
-    clearInterval(intervalo);
-    // Calcular el próximo intervalo (incremento exponencial)
-    let proximoIntervalo = Math.max(800, 10000 / Math.pow(2, contadorNotificaciones));
-    intervalo = setInterval(cargarNuevaNotificacion, proximoIntervalo);
-}
+            clearInterval(intervalo);
+        // Calcular el próximo intervalo (incremento exponencial)
+            let proximoIntervalo = Math.max(800, 10000 / Math.pow(2, contadorNotificaciones));
+            intervalo = setInterval(cargarNuevaNotificacion, proximoIntervalo);
+        }
     });
 };
 

@@ -33,6 +33,67 @@ body
     top: 0
     left: 0
 
+@keyframes fadeIn
+  from
+    opacity: 0
+    transform: scale(0.7)
+  to
+    opacity: 1
+    transform: scale(1)
+
+.tutorialInicio
+    position: fixed
+    width: 100vw
+    height: 100vh
+    background: radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,1) 100%)
+    font-family: Cactus Jack Alternate
+    padding: 10vh
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    animation: fadeIn 0.7s ease forwards
+.headerTutorial
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    margin-bottom: 2vh
+    img
+        align-self: flex-end
+        width: 3vw
+        transition: transform 0.3s ease
+        cursor: pointer
+    img:hover
+        transform: rotate(360deg)       
+    h1
+        font-family: Cactus Jack Alternate
+        font-size: 12.5vh
+        font-weight: normal
+        color: rgb(255, 255, 255)
+        line-height: 0vh
+        margin: 2vh 0 0 0
+.contenidoTutorial
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    .textoTutorial
+        color: #fff
+        font-size: 4vh
+        max-width: 40vw
+.footerTutorial
+    display: flex
+    flex-direction: column
+    h2
+        font-family: Cactus Jack Alternate
+        align-self: flex-end
+        font-size: 7vh
+        font-weight: normal
+        color: #fff
+        line-height: 5vh
+        margin: 0 
+
+
+
+
 .fondoPortrait
     position: fixed
     width: 100vw
@@ -166,14 +227,6 @@ body
         height: auto
         &.animacion-salida-img
             animation: easeOut 1s ease-out forwards
-
-@keyframes cambioFuente
-    from
-        font-family: Cactus Jack Alternate
-        transform: translateX(0)
-    to 
-        font-family: Cactus Jack
-        transform: translateX(-0.17vw)
     
 
 .textoSobreFondos
@@ -188,23 +241,26 @@ body
     padding-top: 2vh
     height: 47vh
     width: 35vw
-        
+
+.botonesInicio
+    display: flex
+    flex-direction: column     
     button
         z-index: 9991
         align-self: flex-end
         border: none
         background: none
         cursor: pointer
-        animation: cambioFuente 0.7s infinite
         font-size: 5vh
+        font-family: Cactus Jack Alternate
         color: #fff
         line-height: 4vh
         margin: 1.4vh 0 0 0
         &:hover
             font-size: 7vh
         &.animacion-salida-btn
-            font-family: Cactus Jack Alternate
             animation: easeOutDown 1s ease-out forwards
+
 
 .textosTextos
     display: flex
@@ -248,10 +304,11 @@ body
     position: absolute
     font-family: 'Cactus Jack Alternate'
     font-size: 3.5vh
+    line-height: 2vh
     background-color: white
     border: 0.425vh solid black
     border-radius: 4vh
-    padding: 1.33vh 2.67vh
+    padding: 0vh 2.67vw 1.8vh 2.67vw
     display: inline-flex
     flex-direction: column
     align-items: center
@@ -282,7 +339,8 @@ body
         padding: 0
         margin: 0
         &:hover
-                font-size: 3.2vh
+                transform: scale(1.2)
+                background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.85) 100%)
                 color: $azul
         &:click
                 border: none
@@ -331,6 +389,7 @@ body
         margin: 0
     p
         font-size: 1.5vw
+        line-height: 4vh
 
 .textoFinal
     display: flex
