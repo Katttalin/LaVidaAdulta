@@ -18,7 +18,6 @@ window.onload = function() {
         audioCorrecta.play();
         musicaInicio.pause();
         musicaInicio2.pause();
-        musica.muted = true;
     });
     soundOff.addEventListener('click', function() {
         soundOff.style.display = 'none';
@@ -32,7 +31,6 @@ window.onload = function() {
         musicaInicio2.loop = true;
         musicaInicio2.volume = 0.6;
         musicaInicio2.play();
-        musica.muted = false;
     });
     btnTutorial.addEventListener('click', function() {
         const audioCorrecta = new Audio('assets/sounds/respuestaCorrecta.mp3');
@@ -73,26 +71,28 @@ window.onload = function() {
         audioCorrecta.play();
         const audioOpen = new Audio('assets/sounds/open.mp3');
         audioOpen.play();
-        musica.src = "assets/sounds/musica.mp3";
-        musica.loop = true;
-        musica.volume = 0;
-        // Graduar el volumen de la música
-        var volumenInicial = 0.01; // Volumen inicial bajo
-        var volumenFinal = 0.05; // Volumen final alto
-        var duracionTotal = 30; // Duración total del cambio de volumen en segundos
-        var pasoVolumen = (volumenFinal - volumenInicial) / duracionTotal;
-        var volumenActual = volumenInicial;
-    
-        var intervalomusica = setInterval(function() {
-            if (volumenActual < volumenFinal) {
-                volumenActual += pasoVolumen;
-                musica.volume = volumenActual;
-            } else {
-                clearInterval(intervalomusica); // Detener el intervalo una vez que se alcanza el volumen final
-            }
-        }, 300); // Llamar a la función cada segundo para suavizar el cambio
-    
-        musica.play();
+        if (!musicaInicio.paused || !musicaInicio2.paused) {
+            musica.src = "assets/sounds/musica.mp3";
+            musica.loop = true;
+            musica.volume = 0;
+            // Graduar el volumen de la música
+            var volumenInicial = 0.01; // Volumen inicial bajo
+            var volumenFinal = 0.05; // Volumen final alto
+            var duracionTotal = 30; // Duración total del cambio de volumen en segundos
+            var pasoVolumen = (volumenFinal - volumenInicial) / duracionTotal;
+            var volumenActual = volumenInicial;
+        
+            var intervalomusica = setInterval(function() {
+                if (volumenActual < volumenFinal) {
+                    volumenActual += pasoVolumen;
+                    musica.volume = volumenActual;
+                } else {
+                    clearInterval(intervalomusica); // Detener el intervalo una vez que se alcanza el volumen final
+                }
+            }, 300); // Llamar a la función cada segundo para suavizar el cambio
+        
+            musica.play();
+        }
         animarSecuenciaDeImagenes();
         // Animación de transición entre imágenes
         var casaOscuroE = document.querySelector('.casaOscuro');
@@ -385,7 +385,9 @@ function mostrarNotificacionFinal() {
                  musica.volume = volumenActual;
              } else {
                  clearInterval(intervalomusicaOut); // Detener el intervalo una vez que se alcanza el volumen final
-                 musica.pause(); // Pausar la música una vez que el volumen llega a cero
+                 if (!musica.paused) {
+                    musica.pause(); // Pausar la música una vez que el volumen llega a cero
+                 } // Pausar la música una vez que el volumen llega a cero
              }
         }, 300); // Llamar a la función cada segundo para suavizar el cambio
         obtenerImagenGiphy()
@@ -456,7 +458,9 @@ function mostrarNotificacionFinalHogar() {
                  musica.volume = volumenActual;
              } else {
                  clearInterval(intervalomusicaOut); // Detener el intervalo una vez que se alcanza el volumen final
-                 musica.pause(); // Pausar la música una vez que el volumen llega a cero
+                 if (!musica.paused) {
+                    musica.pause(); // Pausar la música una vez que el volumen llega a cero
+                 } // Pausar la música una vez que el volumen llega a cero
              }
         }, 300); // Llamar a la función cada segundo para suavizar el cambio
     obtenerImagenGiphy()
@@ -527,7 +531,9 @@ function mostrarNotificacionFinalSalud() {
                  musica.volume = volumenActual;
              } else {
                  clearInterval(intervalomusicaOut); // Detener el intervalo una vez que se alcanza el volumen final
-                 musica.pause(); // Pausar la música una vez que el volumen llega a cero
+                 if (!musica.paused) {
+                    musica.pause(); // Pausar la música una vez que el volumen llega a cero
+                 } // Pausar la música una vez que el volumen llega a cero
              }
         }, 300); // Llamar a la función cada segundo para suavizar el cambio
     obtenerImagenGiphy()
@@ -596,7 +602,9 @@ function mostrarNotificacionFinalEstudios() {
                  musica.volume = volumenActual;
              } else {
                  clearInterval(intervalomusicaOut); // Detener el intervalo una vez que se alcanza el volumen final
-                 musica.pause(); // Pausar la música una vez que el volumen llega a cero
+                 if (!musica.paused) {
+                    musica.pause(); // Pausar la música una vez que el volumen llega a cero
+                 } // Pausar la música una vez que el volumen llega a cero
              }
         }, 300); // Llamar a la función cada segundo para suavizar el cambio
     obtenerImagenGiphy()
