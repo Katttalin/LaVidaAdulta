@@ -18,6 +18,9 @@ body
    width: 100vw
    height: 100vh
    overflow: hidden
+   cursor: url('../imagenes/cursor.png'), auto
+   button
+    cursor: url('../imagenes/pointer.png'), pointer !important
 
 .preguntas
     width: 100%
@@ -61,7 +64,7 @@ body
         align-self: flex-end
         width: 3vw
         transition: transform 0.3s ease
-        cursor: pointer
+        cursor: url('../imagenes/pointer.png'), pointer
     img:hover
         transform: rotate(360deg)       
     h1
@@ -221,12 +224,30 @@ body
     display: flex
     justify-content: center
     align-items: center
-    img
+    .fumando
         position: fixed
         width: 100vw
         height: auto
         &.animacion-salida-img
             animation: easeOut 1s ease-out forwards
+    .soundbutton
+        position: fixed
+        bottom: 7.2vh
+        left: 7.2vw
+        width: 4vw
+        .soundOn
+            position: fixed
+            bottom: 7.2vh
+            left: 7.2vw
+            width: 4vw
+            display: none
+            cursor: url('../imagenes/pointer.png'), pointer
+        .soundOff
+            position: fixed
+            bottom: 7.2vh
+            left: 7.2vw
+            width: 4vw
+            cursor: url('../imagenes/pointer.png'), pointer
     
 
 .textoSobreFondos
@@ -306,14 +327,13 @@ body
     font-size: 3.5vh
     line-height: 2vh
     background-color: white
-    border: 0.425vh solid black
     border-radius: 4vh
     padding: 0vh 2.67vw 1.8vh 2.67vw
     display: inline-flex
     flex-direction: column
     align-items: center
     width: auto
-    box-shadow: 0 0.75vh 0.42vh 0.33vh rgba(0, 0, 0, 0.2)
+    box-shadow: 0 0.75vh 0.42vh 0.33vh rgba(0, 0, 0, 0.3)
     opacity: 0
     transform: translateY(10vh)
     animation: entrada 0.3s ease forwards

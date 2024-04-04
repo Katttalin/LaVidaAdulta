@@ -1,11 +1,44 @@
 let intervalo;
+var musica = new Audio();
+var musicaInicio = new Audio();
+var musicaInicio2 = new Audio();
 //INICIO//
 window.onload = function() {
     const btnTutorial = document.getElementById('tutorial');
     const btnNuevaPartida = document.getElementById('nuevaPartida');
+    const btnSonido = document.getElementById('soundButton');
     const casaOscuro = document.querySelector('.casaOscuro');
     const casaNormal = document.querySelector('.casaNormal');
+    const soundOn = document.getElementById("soundOn");
+    const soundOff = document.getElementById("soundOff");
+    soundOn.addEventListener('click', function() {
+        soundOn.style.display = 'none';
+        soundOff.style.display = 'block';
+        const audioCorrecta = new Audio('assets/sounds/respuestaCorrecta.mp3');
+        audioCorrecta.play();
+        musicaInicio.pause();
+        musicaInicio2.pause();
+        musica.muted = true;
+    });
+    soundOff.addEventListener('click', function() {
+        soundOff.style.display = 'none';
+        soundOn.style.display = 'block';
+        const audioCorrecta = new Audio('assets/sounds/respuestaCorrecta.mp3');
+        audioCorrecta.play();
+        musicaInicio.src = "assets/sounds/fondo.mp3";
+        musicaInicio.loop = true;
+        musicaInicio.play();
+        musicaInicio2.src = "assets/sounds/fondo2.mp3";
+        musicaInicio2.loop = true;
+        musicaInicio2.volume = 0.6;
+        musicaInicio2.play();
+        musica.muted = false;
+    });
     btnTutorial.addEventListener('click', function() {
+        const audioCorrecta = new Audio('assets/sounds/respuestaCorrecta.mp3');
+        audioCorrecta.play();
+        const audioOpen = new Audio('assets/sounds/open.mp3');
+        audioOpen.play();
         const tutorialInicio = `
             <div class="tutorialInicio">
                 <div class=headerTutorial>
@@ -31,9 +64,35 @@ window.onload = function() {
            // Seleccionar el div tutorialInicio y eliminarlo del DOM
            const tutorialDiv = document.querySelector('.tutorialInicio');
            tutorialDiv.remove();
+           const audioCorrecta = new Audio('assets/sounds/respuestaCorrecta.mp3');
+           audioCorrecta.play();
         });
     });
     btnNuevaPartida.addEventListener('click', function() {
+        const audioCorrecta = new Audio('assets/sounds/respuestaCorrecta.mp3');
+        audioCorrecta.play();
+        const audioOpen = new Audio('assets/sounds/open.mp3');
+        audioOpen.play();
+        musica.src = "assets/sounds/musica.mp3";
+        musica.loop = true;
+        musica.volume = 0;
+        // Graduar el volumen de la música
+        var volumenInicial = 0.01; // Volumen inicial bajo
+        var volumenFinal = 0.05; // Volumen final alto
+        var duracionTotal = 30; // Duración total del cambio de volumen en segundos
+        var pasoVolumen = (volumenFinal - volumenInicial) / duracionTotal;
+        var volumenActual = volumenInicial;
+    
+        var intervalomusica = setInterval(function() {
+            if (volumenActual < volumenFinal) {
+                volumenActual += pasoVolumen;
+                musica.volume = volumenActual;
+            } else {
+                clearInterval(intervalomusica); // Detener el intervalo una vez que se alcanza el volumen final
+            }
+        }, 300); // Llamar a la función cada segundo para suavizar el cambio
+    
+        musica.play();
         animarSecuenciaDeImagenes();
         // Animación de transición entre imágenes
         var casaOscuroE = document.querySelector('.casaOscuro');
@@ -154,6 +213,8 @@ function obtenerDatosAleatorios() {
 
 // Función para mostrar la notificación con pregunta y respuestas
 function mostrarNotificacion(pregunta, respuestaCorrecta, respuestaIncorrecta, categoria) {
+    const audioOpen = new Audio('assets/sounds/open.mp3');
+    audioOpen.play();
     console.log('Mostrando notificación...');
     const randomId = 'notificacion_' + Math.random().toString(36).substr(2, 9); // Generar un identificador único
     
@@ -264,8 +325,12 @@ function responder(esCorrecta, categoria, id) {
         console.log('Puntos Salud:', puntosSalud);
         console.log('Puntos Estudios:', puntosEstudios);
         notificacionDiv.classList.add('no-clicable');
+        const audioIncorrecta = new Audio('assets/sounds/respuestaIncorrecta.mp3');
+        audioIncorrecta.play();
     } else {
         notificacionDiv.style.display = 'none';
+        const audioCorrecta = new Audio('assets/sounds/respuestaCorrecta.mp3');
+        audioCorrecta.play();
     }
     if (contadorNotificaciones < 100) { // Verifica si aún no se han mostrado 100 notificaciones
         verificarNotificacionFinalHogar();
@@ -306,6 +371,23 @@ let notificacionFinalMostrada = false; // Bandera para controlar si la notificac
 function mostrarNotificacionFinal() {
     // Verificar si se han mostrado ya 100 notificaciones y si la notificación final no se ha mostrado antes
     if (contadorNotificaciones === 100 && !notificacionFinalMostrada) {
+        const audioOpen = new Audio('assets/sounds/open.mp3');
+        audioOpen.play();
+        var volumenInicial = 0.05; // Volumen inicial alto
+        var volumenFinal = 0; // Volumen final cero
+        var duracionTotal = 7; // Duración total del cambio de volumen en segundos
+        var pasoVolumen = (volumenInicial - volumenFinal) / duracionTotal;
+        var volumenActual = volumenInicial;
+
+        var intervalomusicaOut = setInterval(function() {
+             if (volumenActual > volumenFinal) {
+                 volumenActual -= pasoVolumen;
+                 musica.volume = volumenActual;
+             } else {
+                 clearInterval(intervalomusicaOut); // Detener el intervalo una vez que se alcanza el volumen final
+                 musica.pause(); // Pausar la música una vez que el volumen llega a cero
+             }
+        }, 300); // Llamar a la función cada segundo para suavizar el cambio
         obtenerImagenGiphy()
             .then(imageUrl => {
                 // Crear el nuevo div para la notificación final
@@ -331,6 +413,8 @@ function mostrarNotificacionFinal() {
                 document.body.appendChild(divFinal);
                 // Agregar un retraso de 2 segundos para mostrar el botón
                 setTimeout(function() {
+                    const audioOpen = new Audio('assets/sounds/open.mp3');
+                    audioOpen.play();
                     const botonOtraVez = divFinal.querySelector('.botonOtraVez');
                     botonOtraVez.classList.add('mostrar');
                     botonOtraVez.addEventListener('click', function() {
@@ -358,6 +442,23 @@ function verificarNotificacionFinalHogar() {
 }
 
 function mostrarNotificacionFinalHogar() {
+    const audioOpen = new Audio('assets/sounds/open.mp3');
+    audioOpen.play();
+    var volumenInicial = 0.05; // Volumen inicial alto
+        var volumenFinal = 0; // Volumen final cero
+        var duracionTotal = 7; // Duración total del cambio de volumen en segundos
+        var pasoVolumen = (volumenInicial - volumenFinal) / duracionTotal;
+        var volumenActual = volumenInicial;
+
+        var intervalomusicaOut = setInterval(function() {
+             if (volumenActual > volumenFinal) {
+                 volumenActual -= pasoVolumen;
+                 musica.volume = volumenActual;
+             } else {
+                 clearInterval(intervalomusicaOut); // Detener el intervalo una vez que se alcanza el volumen final
+                 musica.pause(); // Pausar la música una vez que el volumen llega a cero
+             }
+        }, 300); // Llamar a la función cada segundo para suavizar el cambio
     obtenerImagenGiphy()
         .then(imageUrl => {
             // Crear el nuevo div para la notificación final solo si los puntos de hogar son 0
@@ -384,6 +485,8 @@ function mostrarNotificacionFinalHogar() {
                 document.body.appendChild(divFinal);
                 // Agregar un retraso de 2 segundos para mostrar el botón
                 setTimeout(function() {
+                    const audioOpen = new Audio('assets/sounds/open.mp3');
+                    audioOpen.play();
                     const botonOtraVez = divFinal.querySelector('.botonOtraVez');
                     botonOtraVez.classList.add('mostrar');
                     botonOtraVez.addEventListener('click', function() {
@@ -410,6 +513,23 @@ function verificarNotificacionFinalSalud() {
 }
 
 function mostrarNotificacionFinalSalud() {
+    const audioOpen = new Audio('assets/sounds/open.mp3');
+    audioOpen.play();
+    var volumenInicial = 0.05; // Volumen inicial alto
+        var volumenFinal = 0; // Volumen final cero
+        var duracionTotal = 7; // Duración total del cambio de volumen en segundos
+        var pasoVolumen = (volumenInicial - volumenFinal) / duracionTotal;
+        var volumenActual = volumenInicial;
+
+        var intervalomusicaOut = setInterval(function() {
+             if (volumenActual > volumenFinal) {
+                 volumenActual -= pasoVolumen;
+                 musica.volume = volumenActual;
+             } else {
+                 clearInterval(intervalomusicaOut); // Detener el intervalo una vez que se alcanza el volumen final
+                 musica.pause(); // Pausar la música una vez que el volumen llega a cero
+             }
+        }, 300); // Llamar a la función cada segundo para suavizar el cambio
     obtenerImagenGiphy()
         .then(imageUrl => {
             // Crear el nuevo div para la notificación final solo si los puntos de hogar son 0
@@ -436,6 +556,8 @@ function mostrarNotificacionFinalSalud() {
                 document.body.appendChild(divFinal);
                 // Agregar un retraso de 2 segundos para mostrar el botón
                 setTimeout(function() {
+                    const audioOpen = new Audio('assets/sounds/open.mp3');
+                    audioOpen.play();
                     const botonOtraVez = divFinal.querySelector('.botonOtraVez');
                     botonOtraVez.classList.add('mostrar');
                     botonOtraVez.addEventListener('click', function() {
@@ -460,6 +582,23 @@ function verificarNotificacionFinalEstudios() {
     }
 }
 function mostrarNotificacionFinalEstudios() {
+    const audioOpen = new Audio('assets/sounds/open.mp3');
+    audioOpen.play();
+    var volumenInicial = 0.05; // Volumen inicial alto
+        var volumenFinal = 0; // Volumen final cero
+        var duracionTotal = 7; // Duración total del cambio de volumen en segundos
+        var pasoVolumen = (volumenInicial - volumenFinal) / duracionTotal;
+        var volumenActual = volumenInicial;
+
+        var intervalomusicaOut = setInterval(function() {
+             if (volumenActual > volumenFinal) {
+                 volumenActual -= pasoVolumen;
+                 musica.volume = volumenActual;
+             } else {
+                 clearInterval(intervalomusicaOut); // Detener el intervalo una vez que se alcanza el volumen final
+                 musica.pause(); // Pausar la música una vez que el volumen llega a cero
+             }
+        }, 300); // Llamar a la función cada segundo para suavizar el cambio
     obtenerImagenGiphy()
         .then(imageUrl => {
             // Crear el nuevo div para la notificación final solo si los puntos de hogar son 0
@@ -486,6 +625,8 @@ function mostrarNotificacionFinalEstudios() {
                 document.body.appendChild(divFinal);
                 // Agregar un retraso de 2 segundos para mostrar el botón
                 setTimeout(function() {
+                    const audioOpen = new Audio('assets/sounds/open.mp3');
+                    audioOpen.play();
                     const botonOtraVez = divFinal.querySelector('.botonOtraVez');
                     botonOtraVez.classList.add('mostrar');
                     botonOtraVez.addEventListener('click', function() {
