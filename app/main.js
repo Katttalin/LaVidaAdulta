@@ -115,6 +115,9 @@ window.onload = function() {
         buttonElement2.classList.add('animacion-salida-btn');
         imgElement.classList.add('animacion-salida-img');
         
+        soundOff.style.display = 'none';
+        soundOn.style.display = 'none';
+        
         setTimeout(() => {
             console.log('Llamando a mostrarNotificacion y cargarNuevaNotificacion');
             gestorNotificaciones()
